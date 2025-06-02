@@ -15,7 +15,7 @@ services:
     volumes:
       # اگر فقط یکبار بخوای اسکریپت sql اجرا شه این خطو بذار و بعد حذفش کن
       - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
-      - mysql-data:/var/lib/mysql
+   
 
   backend:
     image: thepouriya/uniproject-backend:latest
