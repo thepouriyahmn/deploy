@@ -14,7 +14,7 @@ services:
       - "3306:3306"
     volumes:
       # اگر فقط یکبار بخوای اسکریپت sql اجرا شه این خطو بذار و بعد حذفش کن
-      # - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
+      - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
       - mysql-data:/var/lib/mysql
 
   backend:
