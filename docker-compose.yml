@@ -16,7 +16,7 @@ services:
       - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
 
   backend:
-    build: ../backend
+    image: thepouriya/uniproject-backend:latest
     ports:
       - "9001:9001"
     depends_on:
@@ -29,6 +29,6 @@ services:
       DB_NAME: hellodb
 
   frontend:
-    build: ../frontend
+    image: thepouriya/uniproject-frontend:latest
     ports:
       - "9000:9000"
