@@ -15,7 +15,10 @@ services:
     volumes:
       # - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
        - mysql-data:/var/lib/mysql
-
+       
+volumes:
+  mysql-data:
+  
   backend:
     image: thepouriya/uniproject-backend:latest
     ports:
