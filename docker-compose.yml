@@ -1,5 +1,7 @@
 # version: '3.8'
 
+# version: '3.8'
+
 services:
   mysql:
     image: mysql:8.0
@@ -16,7 +18,7 @@ services:
       - mysql_data:/var/lib/mysql
       - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
       interval: 10s
       timeout: 5s
       retries: 5
