@@ -13,9 +13,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # اگر فقط یکبار بخوای اسکریپت sql اجرا شه این خطو بذار و بعد حذفش کن
+      - mysql_data:/var/lib/mysql
       - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
-   
 
   backend:
     image: thepouriya/uniproject-backend:latest
@@ -35,4 +34,5 @@ services:
     ports:
       - "9000:9000"
 
-
+volumes:
+  mysql_data:
