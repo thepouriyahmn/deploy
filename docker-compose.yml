@@ -15,13 +15,21 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
+       
+ 
+  healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     image: thepouriya/uniproject-backend:latest
     ports:
       - "9001:9001"
     depends_on:
-      - mysql
+     mysql:
+    condition: service_healthy
     environment:
       DB_USER: myuser
       DB_PASS: mypass
