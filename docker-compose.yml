@@ -14,7 +14,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
+      # - ./hellodb.sql:/docker-entrypoint-initdb.d/hellodb.sql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
